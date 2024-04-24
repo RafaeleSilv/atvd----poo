@@ -1,16 +1,16 @@
 package repository;
 
 import entity.Conta;
-import exception.ExcecaoElementoInexistente;
+import exception.ExcecaoElementoInex;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class RepositorioConta implements IRepositorioConta{
+public class Repositorio implements IRepositorio{
     public ArrayList<Conta> contas;
     public int qtd_contas;
     public Scanner sc = new Scanner(System.in);
 
-    public RepositorioConta(){
+    public Repositorio(){
         this.contas = new ArrayList<Conta>();
         this.qtd_contas = contas.size();
     }
@@ -38,13 +38,13 @@ public class RepositorioConta implements IRepositorioConta{
         }
     }
 
-    public Conta buscarConta(String numero) throws ExcecaoElementoInexistente{
+    public Conta buscarConta(String numero) throws ExcecaoElementoInex{
         for (Conta c : contas){
             if (c.getNumero().equals(numero)){
                 return c;
             }
         }
-        throw new ExcecaoElementoInexistente("Conta Não Encontrada");
+        throw new ExcecaoElementoInexe("Conta Não Encontrada");
     }
     public boolean verificarExistenciaConta(String numero){
         for (Conta c : contas){
