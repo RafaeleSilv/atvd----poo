@@ -1,18 +1,18 @@
 package controller;
 
 import entity.Conta;
-import repository.IRepositorioConta;
-import repository.RepositorioConta;
-import exception.ExcecaoElementoInexistente;
+import repository.IRepositorio;
+import repository.Repositorio;
+import exception.ExcecaoElementoInex;
 
-public class ControladorConta implements IControladorConta {
-    private IRepositorioConta reposConta;
+public class ControladorConta implements IControlaConta {
+    private IRepositorio repos;
 
-    public ControladorConta() {
-        inicializarRepositorioConta();
+    public ControlaConta() {
+        inicializarRepositorio();
     }
 
-    private void inicializarRepositorioConta() {
+    private void inicializarRepositorio() {
         this.reposConta = new RepositorioConta();
     }
 
@@ -28,12 +28,12 @@ public class ControladorConta implements IControladorConta {
         reposConta.removerConta(numero);
     }
 
-    public Conta buscarConta(String numero) throws ExcecaoElementoInexistente {
+    public Conta buscarConta(String numero) throws ExcecaoElementoInex {
         return reposConta.buscarConta(numero);
     }
 
     public boolean verificarExistenciaConta(String numero) {
-        return reposConta.verificarExistenciaConta(numero);
+        return repos.verificarExistenciaConta(numero);
     }
 
     public void mostrarContas() {
