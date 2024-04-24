@@ -1,7 +1,7 @@
 package exception;
 
-public class ExcecaoElementoInexistente extends Exception{
-    public ExcecaoElementoInexistente(String msg){
+public class ExcecaoElementoInex extends Exception{
+    public ExcecaoElementoInex(String msg){
         super(msg);
     }
 }
