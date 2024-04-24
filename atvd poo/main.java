@@ -1,7 +1,7 @@
 import entity.Conta;
 import facade.Fachada;
 import facade.IFachada;
-import exception.ExcecaoElementoInexistente;
+import exception.ExcecaoElementoInex;
 
 import java.util.Scanner;
 
@@ -20,23 +20,23 @@ public class Main {
         int escolha = 1;
         while (escolha != 0) {
             System.out.println("-------------- MENU ---------------");
-            System.out.println("[0] - Sair");
-            System.out.println("[1] - Inserir Conta");
-            System.out.println("[2] - Remover Conta");
-            System.out.println("[3] - Alterar Conta");
-            System.out.println("[4] - Buscar Conta");
-            System.out.println("[5] - Relatorio de todas contas");
+            System.out.println("[0] -- Sair");
+            System.out.println("[1] -- Inserir a Conta");
+            System.out.println("[2] -- Remover a Conta");
+            System.out.println("[3] -- Alterar a Conta");
+            System.out.println("[4] -- Buscar a Conta");
+            System.out.println("[5] -- Relatório de todas as contas");
             System.out.print("Escolha uma opção: ");
             escolha = scanner.nextInt();
             switch (escolha) {
                 case 1:
                     try {
-                        System.out.print("Numero da Conta: ");
+                        System.out.print("Número da Conta: ");
                         String numeroConta = scanner.next();
 
                         System.out.print("Titular da Conta: ");
                         String titular = scanner.next();
-                        System.out.print("Insira o valor inicial: R$ ");
+                        System.out.print("Insira o valor inicial:  ");
                         double saldo = scanner.nextDouble();
 
                         fachada.inserirConta(new Conta(numeroConta, titular, saldo));
@@ -51,14 +51,14 @@ public class Main {
                         System.out.print("Numero da Conta: ");
                         String numero = scanner.next();
                         fachada.removerConta(numero);
-                        System.out.println("Conta removida com sucesso!");
+                        System.out.println("A conta foi removida com sucesso.");
                     } catch (Exception e) {
-                        System.out.println("Lista de contas está vazia!");
+                        System.out.println("A lista de contas está vazia.");
                     }
                     break;
 
                 case 3:
-                    System.out.print("Digite o numero da conta que deseja alterar: ");
+                    System.out.print("Digite o número da conta que deseja alterar: ");
                     String numC = scanner.next();
                     fachada.alterarConta(numC);
                     break;
@@ -68,7 +68,7 @@ public class Main {
                         String num = scanner.next();
                         System.out.println(fachada.buscarConta(num));
 
-                    } catch (ExcecaoElementoInexistente e) {
+                    } catch (ExcecaoElementoInex e) {
                         System.out.println(e.getMessage());
                     }
                     break;
