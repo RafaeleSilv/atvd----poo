@@ -1,15 +1,15 @@
 package facade;
 
 import entity.Conta;
-import exception.ExcecaoElementoInexistente;
-import controller.ControladorConta;
-import controller.IControladorConta;
+import exception.ExcecaoElementoInex;
+import controller.ControlaConta;
+import controller.IControlaConta;
 
 public class Fachada implements IFachada{
     private IControladorConta controConta;
 
     public Fachada(){
-        this.controConta = new ControladorConta();
+        this.controConta = new ControlaConta();
     }
 
     public void inserirConta(Conta c){
@@ -22,7 +22,7 @@ public class Fachada implements IFachada{
     public void removerConta(String numero){
         this.controConta.removerConta(numero);
     }
-    public Conta buscarConta(String numero) throws ExcecaoElementoInexistente {
+    public Conta buscarConta(String numero) throws ExcecaoElementoInex {
         return this.controConta.buscarConta(numero);
     }
     public boolean verificarExistenciaConta(String numero){
